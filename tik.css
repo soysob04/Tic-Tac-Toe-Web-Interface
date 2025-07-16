@@ -1,0 +1,130 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.game-mode {
+    margin: 15px 0;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.game-mode button {
+    padding: 8px 15px;
+    font-size: 14px;
+    background-color: #e0e0e0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.game-mode button.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.scoreboard {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 15px 0;
+    flex-wrap: wrap;
+}
+
+.score {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(80px, 1fr));
+    grid-template-rows: repeat(3, minmax(80px, 1fr));
+    gap: 5px;
+    margin: 20px auto;
+    aspect-ratio: 1/1;
+    max-width: 400px;
+}
+
+.cell {
+    background-color: white;
+    border: 2px solid #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.cell:hover {
+    background-color: #e0e0e0;
+}
+
+.cell.winning-cell {
+    animation: pulse 1s infinite;
+    background-color: #a5d6a7;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+#status {
+    margin: 20px 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+    min-height: 2rem;
+}
+
+#reset {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#reset:hover {
+    background-color: #45a049;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+    
+    #board {
+        grid-template-columns: repeat(3, minmax(70px, 1fr));
+        grid-template-rows: repeat(3, minmax(70px, 1fr));
+    }
+    
+    .cell {
+        font-size: 2rem;
+    }
+    
+    .scoreboard {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
